@@ -5,7 +5,7 @@ export default function Home() {
   const greeting: string = 'Hello World'
 
   return (
-    <div>
+    <div className="bg-red-100 p-4 pt-12">
       <div>{greeting}</div>
       <Sample />
     </div>
