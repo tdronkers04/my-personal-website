@@ -2,11 +2,18 @@
   "extends": [
     "next/core-web-vitals",
     "next/typescript",
+    "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:import/recommended"
   ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
   "rules": {
     "no-console": "warn",
     "no-unused-vars": "off", // TypeScript handles this better than ESLint (see rule below)
@@ -28,6 +35,36 @@
       }
     ],
     // React rules
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    // Import order rules
+    "import/no-unresolved": "off",
+    "import/extensions": "off",
+    "import/prefer-default-export": [
+      0
+    ],
+    "import/named": [
+      0
+    ],
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": [
+          "react"
+        ],
+        "newlines-between": "never"
+      }
+    ]
   }
 }
